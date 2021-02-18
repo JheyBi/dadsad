@@ -1,0 +1,87 @@
+/*10) Faça um programa que receba a idade e o peso de 
+quinze pessoas, calcule e mostre as médias dos 
+pesos das pessoas da mesma faixa etária. 
+As faixas etárias são: de 1 a 10 anos, 
+de 11 a 20 anos, de 21 a 30 anos e de 31 para cima.*/
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int main()
+{
+    int i, idade, peso;
+    float numPeso = 0, q1 = 0;
+    float numPeso2 = 0, q2 = 0;
+    float numPeso3 = 0, q3 = 0;
+    float numPeso4 = 0, q4 = 0;
+    float mPeso, mPeso2, mPeso3, mPeso4, Teste;
+    for (i = 1; i < 16; i++)
+    {
+        printf("\nPessoa Nº%i\n", i);
+        printf("Digite sua idade:");
+        scanf("%i", &idade);
+        printf("Digite seu peso: ");
+        scanf("%i", &peso);
+        if (idade >= 1 && idade <= 10)
+        {
+            q1++;
+            numPeso = numPeso + peso;
+        }
+        else if (idade >= 11 && idade <= 20)
+        {
+            q2++;
+            numPeso2 = numPeso2 + peso;
+        }
+        else if (idade >= 21 && idade <= 30)
+        {
+            q3++;
+            numPeso3 = numPeso3 + peso;
+        }
+        else if (idade >= 31)
+        {
+            q4++;
+            numPeso4 = numPeso4 + peso;
+        }
+    }
+    /*CONSERTO DO ERRO "Floating Point exception", CAUSADO PELA DIVISÃO POR 0*/
+    if (q1 != 0)
+    {
+        mPeso = numPeso / q1;
+    }
+    else
+    {
+        mPeso = 0;
+    }
+
+    if (q2 != 0)
+    {
+        mPeso2 = numPeso2 / q2;
+    }
+    else
+    {
+        mPeso2 = 0;
+    }
+
+    if (q3 != 0)
+    {
+        mPeso3 = numPeso3 / q3;
+    }
+    else
+    {
+        mPeso3 = 0;
+    }
+
+    if (q4 != 0)
+    {
+        mPeso4 = numPeso4 / q4;
+    }
+    else
+    {
+        mPeso4 = 0;
+    }
+    /**/
+    printf("\nA média de pesos:\n1ºFaixa etária: %.2f\n", mPeso);
+    printf("\n2ºFaixa etária: %.2f\n", mPeso2);
+    printf("\n3ºFaixa etária: %.2f\n", mPeso3);
+    printf("\n4ºFaixa etária: %.2f\n", mPeso4);
+}
